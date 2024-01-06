@@ -1,0 +1,50 @@
+pipelines:
+  custom:
+    deploy-staging:
+      - step: &deploy-staging
+          name: Deploy to Staging
+          max-time: 20
+          script:
+            - pipe: atlassian/rsync-deploy:0.7.0
+              variables:
+                USER: $SSH_USER
+                REMOTE_PATH: '/var/www/twilio_dev'
+                LOCAL_PATH: ${BITBUCKET_CLONE_DIR}/
+                SERVER: $SERVER_IP
+                DEBUG: 'true'
+            - pipe: atlassian/ssh-run:0.4.0
+              variables:
+                SSH_USER: $SSH_USER
+                SERVER: $SERVER_IP
+                COMMAND: |
+                  export API_KEY_DEV=$API_KEY_DEV
+                  export DATABASE_USERNAME=$DATABASE_USERNAME
+                  export DATABASE_PASSWORD=$DATABASE_PASSWORD
+                  /var/www/twilio_dev/deploy/deploy_staging.sh
+    deploy-prod:
+      - step: &deploy-prod
+          name: Deploy to Production
+          max-time: 20
+          script:
+            - pipe: atlassian/rsync-deploy:0.7.0
+              variables:
+                USER: $SSH_USER
+                REMOTE_PATH: '/var/www/twilio'
+                LOCAL_PATH: ${BITBUCKET_CLONE_DIR}/
+                SERVER: $SERVER_IP
+                DEBUG: 'true'
+            - pipe: atlassian/ssh-run:0.4.0
+              variables:
+                SSH_USER: $SSH_USER
+                SERVER: $SERVER_IP
+                COMMAND: |
+                  export API_KEY="$API_KEY"
+                  export DATABASE_USERNAME=$DATABASE_USERNAME
+                  export DATABASE_PASSWORD=$DATABASE_PASSWORD
+                  /var/www/twilio/deploy/deploy_production.sh
+
+  branches:
+    dev:
+      - step: *deploy-staging
+    master:
+      - step: *deploy-prod

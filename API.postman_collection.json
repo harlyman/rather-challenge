@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "156b30ec-f67f-4f8c-bc87-e433381ea4a5",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9081795"
+	},
+	"item": [
+		{
+			"name": "tenants",
+			"item": [
+				{
+					"name": "tenants",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Referer",
+								"value": "''",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}tenants",
+							"host": [
+								"{{host}}tenants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tenants",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Referer",
+								"value": "''",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"prueba\",\n    \"referer\": [\n        \"localhost:1516\"\n    ],\n    \"apiKey\": \"012345678912\",\n    \"accountSid\": \"012345678912\",\n    \"authToken\": \"012345678912\",\n    \"number\": \"+11234567891\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}tenants",
+							"host": [
+								"{{host}}tenants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tenants",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Referer",
+								"value": "''",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"guids\": [\n        \"aafb111e-bc03-4b19-870c-3149942332de\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}tenants",
+							"host": [
+								"{{host}}tenants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tenants/:guid",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Referer",
+								"value": "''",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Tenant Prueba\",\n    \"referer\": [\n        \"localhost:1517\"\n    ],\n    \"apiKey\": \"012345678912_TT\",\n    \"accountSid\": \"AC012345678912\",\n    \"authToken\": \"012345678912_TT\",\n    \"number\": \"+543764619453\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}tenants/:guid",
+							"host": [
+								"{{host}}tenants"
+							],
+							"path": [
+								":guid"
+							],
+							"variable": [
+								{
+									"key": "guid",
+									"value": "aafb111e-bc03-4b19-870c-3149942332de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tenants/:guid",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Referer",
+								"value": "''",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}tenants/:guid",
+							"host": [
+								"{{host}}tenants"
+							],
+							"path": [
+								":guid"
+							],
+							"variable": [
+								{
+									"key": "guid",
+									"value": "T-01"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "send",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "{{apiKey}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "x-api-key",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Referer",
+								"value": "{{host}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"toNumber\": \"+543764619453\",\n    \"message\": \"buenas\",\n    \"type\": \"sms\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}messages/send",
+							"host": [
+								"{{host}}messages"
+							],
+							"path": [
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}",
+					"host": [
+						"{{host}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
