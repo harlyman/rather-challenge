@@ -14,6 +14,10 @@ This project has a config folder where the Dockerfile is located and an entrypoi
 
 As a particularity in the entripoint, the IP of the database is configured in case it is not a docker service and requires access from the container to the host
 
+In addition, documentation is implemented with swagger which is deployed in the /api-docs endpoint.
+
+This can be hidden by simply changing the value of the SWAGGER_DOCS environment variable.
+
 The configuration only requires specifying the values of the environment variables detailed in the .env-local file, the same when executing the script
 
 ```bash
