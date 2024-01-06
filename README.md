@@ -10,6 +10,10 @@ $ npm install
 
 ## Configuration
 
+This project has a config folder where the Dockerfile is located and an entrypoint.sh that allows it to be deployed as a Docker image
+
+As a particularity in the entripoint, the IP of the database is configured in case it is not a docker service and requires access from the container to the host
+
 The configuration only requires specifying the values of the environment variables detailed in the .env-local file, the same when executing the script
 
 ```bash

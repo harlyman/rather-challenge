@@ -11,7 +11,7 @@ trap _term SIGTERM
 export HOST_IP=$(ip -4 route get 8.8.8.8 | awk '{print $3}')
 
 # Imprime la IP del host
-export DATABASE_HOST=$HOST_IP
+# export DATABASE_HOST=$HOST_IP
 # export DATABASE_HOST=mysql
 
 npm run typeorm:mgr:run
