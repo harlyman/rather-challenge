@@ -1,6 +1,6 @@
 import { BITFINEX_PATH } from '../bitfinex.service';
 
-export class BitfinexGETDto {
+export class BitfinexDTO {
   url: BITFINEX_PATH;
   path?: any;
   query?: any;

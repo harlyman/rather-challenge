@@ -4,11 +4,10 @@ import { ConfigService } from '@nestjs/config';
 import { AxiosError } from 'axios';
 import { catchError, firstValueFrom } from 'rxjs';
 import { UtilsService } from '../utils/utils.service';
-import { BitfinexGETDto } from './dto/bitfinex.dto';
+import { BitfinexDTO } from './dto/bitfinex.dto';
 
 export enum BITFINEX_PATH {
-  GET_ORDER_BOOK = '/book/{pair}/{precision}',
-  GET_TICKET_HISTORY = '/tickers/hist'
+  GET_ORDER_BOOK = '/book/{pair}/{precision}'
 }
 
 @Injectable()
@@ -30,7 +29,7 @@ export class BitfinexService {
     return { headers: { 'Content-Type': 'application/json' } };
   }
 
-  async get(params: BitfinexGETDto): Promise<[number, number, number][]> {
+  async get(params: BitfinexDTO): Promise<[number, number, number][]> {
     const fullURL = this.utils.getFullURL({ baseURL: this.config.get<string>('BITFINEX_URL'), url: params.url, path: params.path, query: params.query });
     this.logger.debug(`GET ${fullURL}`);
 
